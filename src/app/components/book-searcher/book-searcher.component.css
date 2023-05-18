@@ -1,0 +1,59 @@
+/* Set the background color of the header */
+header {
+    background-color: #007bff;
+  }
+  
+  /* Set the font color of the header text */
+  header h1 {
+    color: #fff;
+  }
+  
+  /* Add some margin to the search form */
+  form {
+    margin-bottom: 2rem;
+  }
+  
+  /* Set the font color of the search button */
+  button.btn-primary {
+    color: #fff;
+  }
+  
+  /* Set the background color of the search button on hover */
+  button.btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
+  /* Add some margin to the search results and book details */
+  .row > div {
+    margin-bottom: 2rem;
+  }
+  
+  /* Add some padding to the search results */
+  .col-md-6:first-child {
+    padding-right: 2rem;
+  }
+  
+  /* Add some padding to the book details */
+  .col-md-6:last-child {
+    padding-left: 2rem;
+  }
+  
+  /* Set the font size and weight of the book title */
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Set the font size of the book details */
+  a {
+    font-size: 1.2rem;
+  }
+
+  .container#results{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
+    grid-gap: 15px;
+  }
+  .container > .card img {
+    max-width: 100%;
+  }
