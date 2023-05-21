@@ -8,5 +8,6 @@ export interface Book {
     key: string,
     ia: string[];
     author_key: string[]
-    public_scan_b: boolean
+    public_scan_b: boolean,
+    isbn: string[]
 }

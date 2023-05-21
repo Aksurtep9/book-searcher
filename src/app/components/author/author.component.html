@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="fluid rounded mx-auto d-block" [src]="coverBaseUrl + author!.photos[0] + '-M.jpg'"
+                    alt="{{ null }}">
+                </div>
+            <div class="col-md-8">
+                <h2>{{ author!.name }}</h2>
+                <p><strong>Birth Date:</strong> {{ author!.birth_date }}</p>
+                <h4>Biography</h4>
+                <div *ngIf="author!.bio.value; else elseBlock">
+                    <p>{{ author!.bio.value }}</p>
+                </div>
+                <ng-template #elseBlock>
+                    <p>{{ author!.bio }}</p>
+                </ng-template>
+            </div>
+        
+    </div>
+</div>

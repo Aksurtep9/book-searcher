@@ -10,12 +10,12 @@
       <div class="input-group-prepend">
         <div class="dropdown" ngbDropdown>
           <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" ngbDropdownToggle>
-            {{searchType}}
+            {{searchTypeButtonReference}}
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
             <li><a class="dropdown-item" href="#" (click)="onTitleItemClick($event)">Title</a></li>
-            <li><a class="dropdown-item" href="#"  (click)="onAuthorItemClick($event)">Author</a></li>
-            <li><a class="dropdown-item" href="#"  (click)="onTopicItemClick($event)">Topic</a></li>
+            <li><a class="dropdown-item" href="#" (click)="onAuthorItemClick($event)">Author</a></li>
+            <li><a class="dropdown-item" href="#" (click)="onTopicItemClick($event)">Topic</a></li>
           </ul>
         </div>
       </div>
@@ -31,13 +31,13 @@
         <div class="container-fluid" id="results">
           <h2>Search Results</h2>
           <div class="row justify-content-between">
-            <div class="col-md-5 mb-3" *ngFor="let book of searchResults; let i = index;" [class.active]="book === selectedBook"
-            (click) ="selectedBook = book">
+            <div class="col-md-5 mb-3" *ngFor="let book of searchResults; let i = index;"
+              [class.active]="book === selectedBook" (click)="selectedBook = book">
               <div class="card">
                 <img class="card-img-top" [src]="coverBaseUrl + book.cover_i + '-M.jpg'" alt="{{ book.title }}">
                 <div class="card-body">
-                  <h5 class="card-title">{{ book.title }}</h5>
-                  <p class="card-text">{{ book.author_name }}</p>
+                  <h6 class="card-title">{{ book.title }}</h6>
+                  <p><a class="card-text">{{ book.author_name }}</a></p>
                 </div>
               </div>
             </div>
@@ -46,21 +46,30 @@
       </div>
       <div class="col-md-6">
         <h2>Book Details</h2>
-          <div class="col-md-5" *ngIf="selectedBook">
-            <div class="panel-body">
-              <img class="card-img-top mb-5" [src]="coverBaseUrl + selectedBook.cover_i + '-M.jpg'" alt="{{ selectedBook.title }}">
-              <h6 class="text-bg-primary">Title: {{selectedBook.title}}</h6>
-              <h4 class="text-bg-dark">
-                <a>
-                  Name of the author: {{selectedBook.author_name}}
-                </a>
-              </h4>
-              <h3>
-                First publish year: {{selectedBook.first_publish_year}}
-              </h3>
-            </div>
-
+        <div class="col-md-5" *ngIf="selectedBook">
+          <div class="panel-body">
+            <img class="card-img-top mb-5" [src]="coverBaseUrl + selectedBook.cover_i + '-M.jpg'"
+              alt="{{ selectedBook.title }}">
+            <h6 class="text-bg-primary">Title: {{selectedBook.title}}</h6>
+            <h4 class="text-bg-dark">Name of the author(s):
+              <ol *ngFor="let author_n of selectedBook.author_name; let i = index;">
+                <ul class="text-light">
+                  <a class="text-light"
+                  [routerLink]= "['/author', selectedBook.author_key[i]]">{{author_n}}
+                    
+                  </a>
+                </ul>
+              </ol>
+            </h4>
+            <h3>
+              First publish year: {{selectedBook.first_publish_year}}
+            </h3>
+            <h3 class="text-bg-primary">
+              ISBN: {{selectedBook.isbn[0]}}
+            </h3>
           </div>
+
+        </div>
       </div>
     </div>
   </div>

@@ -10,17 +10,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { NgbDropdownModule, NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+import { AuthorComponent } from './components/author/author.component';
 
 
 let routes: Routes = [
-  {path: "book-searcher", component: BookSearchComponent}
+  {path: "book-searcher", component: BookSearchComponent},
+  {path: "author/:authorKey", component: AuthorComponent}
 ]
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookSearchComponent
+    BookSearchComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,

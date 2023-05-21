@@ -27,15 +27,25 @@ header {
   .row > div {
     margin-bottom: 2rem;
   }
+
+  .col-md-6{
+    border-width: thick;
+    border-color: aqua;
+  }
   
   /* Add some padding to the search results */
   .col-md-6:first-child {
     padding-right: 2rem;
+    border-width: thick;
+    border-color: aqua;
   }
   
   /* Add some padding to the book details */
   .col-md-6:last-child {
     padding-left: 2rem;
+    border-width: thick;
+    border-color: aqua;
+    
   }
   
   /* Set the font size and weight of the book title */
